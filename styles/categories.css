@@ -1,0 +1,7 @@
+@import 'format.css';
+
+#banner{
+    height: 110vh;
+    background-image: url('../assets/wallpaper.jpg');
+    background-position: center;
+}
