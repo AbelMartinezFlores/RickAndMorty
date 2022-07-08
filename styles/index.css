@@ -23,6 +23,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    flex-wrap: wrap;
 }
 
 .group:hover{
@@ -30,33 +31,34 @@
     transition:  flex 0.2s;
 }
 
-.group > h1 {
-    padding-top: 13rem;
+.group  h1 {
+    text-align: center;
+    width: 100%;
+    padding-top: 2rem;
     font-size: 3.5vw;
     font-family: 'Economica', sans-serif;
     text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
     letter-spacing: 3px;
     color: white;
-    
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.group:hover > h1{
+.group:hover  h1{
     font-size: 5.3vw;
     transition: font-size 0.4s;
 }
 
-.group:hover > .desc{
+.group:hover  .desc{
     opacity: 1;
     transform: scale(1.1);
-    max-width: 100%;
+   
     padding-top: 2rem;
     transition: opacity 1s, transform 0.1s, padding-top 0.5s;
     transition-delay: 0s, 0.1s, 0s;
 }
 
-.desc > p{
+.desc  p{
     font-size: 3vw;
     font-weight: bold;
     font-family: 'Economica', sans-serif;
