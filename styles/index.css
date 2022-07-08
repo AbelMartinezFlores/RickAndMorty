@@ -22,8 +22,7 @@
     transition: all 0.4s;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-size: cover; 
 }
 
 .group:hover{
@@ -84,3 +83,32 @@
     opacity: 0;
 }
 
+
+@media (max-width:990px){
+    #container{
+        flex-direction: column;
+        min-height: 100vh;
+    } 
+
+    .group{
+        height: auto;
+        width: 100%;
+    }
+
+    .group:not(:hover) .desc {
+        opacity: 1;
+    }
+
+    .desc > p {
+        font-size: 1rem;
+    }
+
+    #app > nav{
+        position: relative;
+    }
+
+    .group > div {
+        padding: 0;
+        padding-bottom: 2rem;
+    }
+}
