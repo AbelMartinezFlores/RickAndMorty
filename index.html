@@ -21,9 +21,9 @@
               </button>
               <div class="navbar-collapse collapse" id="navbarNavAltMarkup" style="">
                 <div class="navbar-nav">
-                  <a class="nav-link " href="personajes.html">Personajes</a>
                   <a class="nav-link " href="escenarios.html">Escenarios</a>
                   <a class="nav-link " href="capitulos.html">Capitulos</a>
+                  <a class="nav-link " href="personajes.html">Personajes</a>
                 </div>
               </div>
             </div>
@@ -31,9 +31,24 @@
 
         <div id="categories" class="">
           <div id="container">
-            <div class="group" style="background-image: url('./assets/escenarios.png');" onclick="window.location = 'escenarios.html'"></div>
-            <div class="group" style="background-image: url('./assets/capitulos.png');" onclick="window.location = 'capitulos.html'"></div>
-            <div class="group" style="background-image: url('./assets/personajes.png');" onclick="window.location = 'personajes.html'"></div>
+            <div class="group d-flex flex-column align-items-center justify-content-center p-4" style="background-image: url('./assets/escenarios.png');" onclick="window.location = 'escenarios.html'">
+              <h1>ESCENARIOS</h1>
+              <div class="desc text-light">
+                <p>Aqui estan todos los escenarios que aparecen en la serie</p>
+              </div>
+            </div>
+            <div class="group d-flex flex-column align-items-center justify-content-center p-4" style="background-image: url('./assets/capitulos.png');" onclick="window.location = 'capitulos.html'">
+              <h1 style="padding-top: 16rem;">CAPITULOS</h1>
+              <div class="desc text-light">
+                <p>Aqui estan todos las temporadas que hay de la serie</p>
+              </div>
+            </div>
+            <div class="group d-flex flex-column align-items-center justify-content-center p-4" style="background-image: url('./assets/personajes.png');" onclick="window.location = 'personajes.html'">
+              <h1>PERSONAJES</h1>
+              <div class="desc text-light">
+                <p>Aqui estan todos los personajes que aparecen en la serie</p>
+              </div>
+            </div>
           </div>
         </div>
 
