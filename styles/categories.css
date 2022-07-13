@@ -1,7 +1,85 @@
 @import 'format.css';
 
 #banner{
-    height: 110vh;
+    height: 100vh;
     background-image: url('../assets/wallpaper.jpg');
     background-position: center;
+}
+
+#banner > h1 {
+    font-family: 'Economica', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 10vw;
+    font-family: 'Economica', sans-serif;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+    letter-spacing: 3px;
+    text-decoration:underline;
+}
+
+#groupCharacters {
+    
+}
+
+.cardCharacter {
+    display: flex;
+    gap: 0.5rem;
+    background-color: #3C3E44;
+    width: 450px;
+    height: 200px;
+    border-radius: 8px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: .75rem;
+}
+
+.imgCharacter {
+    flex: 2 1 0%;
+}
+
+.imgCharacter > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.infoCharacter {
+    flex: 3 1 0%;
+    padding: 0.5rem;
+}
+
+    .infoCharacter h3{
+        font-size: calc(1.1 + .6vw);
+    }
+
+    .infoCharacter p{
+        margin-bottom: .5rem;
+    }
+
+        .infoCharacter p i{
+            font-size: .75rem;
+        }
+
+.alive{
+    color: #5fd350;
+}
+
+.dead {
+    color: rgb(211, 16, 16);
+}
+
+.no-visibility{
+    display: none;
+}
+
+@media (max-width:500px){
+
+    .cardCharacter {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .imgCharacter > img{
+        height: 300px;
+    }
 }
