@@ -2,6 +2,16 @@
 
 const URL = "https://rickandmortyapi.com/api";
 console.log(URL);
+/**/ 
+const icons = {
+    Human: 'fa-solid fa-user',
+    Alien: 'fa-brands fa-reddit-alien',
+    Humanoid: 'fa-solid fa-user-astronaut',
+    Poopybutthole: 'fa-solid fa-bacterium',
+    'Mythological Creature': 'fa-solid fa-gem',
+    Robot: 'fa-solid fa-robot',
+    Animal: 'fa-solid fa-paw'
+}
 
 function loadCharacters(numberPage){
     //si no se especifica url entonces se muestra pagina inicial
@@ -30,7 +40,7 @@ function loadCharacters(numberPage){
                 </div>
                 <div class="infoCharacter">
                     <h3 class="text-white mb-0">${character.name}</h3>
-                    <p class="text-white"><span class="${character.status.toLowerCase()}">${character.status}</span> - ${character.species} <i class="fa-solid fa-user"></i></p>
+                    <p class="text-white"><span class="${character.status.toLowerCase()}">${character.status}</span> - ${character.species} <i class="${icons[character.species]}"></i></p>
                     <p class="text-white">${character.gender}</p>
                     <p class="text-white-50 mb-0 small">Origen:</p>
                     <p class="text-white">${character.origin.name}</p>
@@ -38,9 +48,7 @@ function loadCharacters(numberPage){
                 `;
 
                 groupCharacters.appendChild(div);
-
             });
-
             
     })
     .catch(err =>{
