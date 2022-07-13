@@ -1,9 +1,9 @@
 @import 'format.css';
 
 #banner{
-    height: 100vh;
+    height: 120vh;
     background-image: url('../assets/wallpaper.jpg');
-    background-position: center;
+    background-position: center bottom;
 }
 
 #banner > h1 {
@@ -17,9 +17,29 @@
     text-decoration:underline;
 }
 
-#groupCharacters {
-    
+.alive{
+    color: #5fd350;
 }
+
+.dead {
+    color: rgb(211, 16, 16);
+}
+
+.no-visibility{
+    display: none;
+}
+
+.inputSearch{
+    position: relative;
+}
+
+.inputSearch > i{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #aaa;
+}
+
 
 .cardCharacter {
     display: flex;
@@ -59,18 +79,6 @@
         .infoCharacter p i{
             font-size: .75rem;
         }
-
-.alive{
-    color: #5fd350;
-}
-
-.dead {
-    color: rgb(211, 16, 16);
-}
-
-.no-visibility{
-    display: none;
-}
 
 @media (max-width:500px){
 
