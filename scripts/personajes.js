@@ -1,8 +1,7 @@
 'use strict'
 
-const URL = "https://rickandmortyapi.com/api";
-console.log(URL);
-/**/ 
+const URL = "https://rickandmortyapi.com/api/character/?";
+
 const icons = {
     Human: 'fa-solid fa-user',
     Alien: 'fa-brands fa-reddit-alien',
@@ -13,11 +12,37 @@ const icons = {
     Animal: 'fa-solid fa-paw'
 }
 
-function loadCharacters(numberPage){
-    //si no se especifica url entonces se muestra pagina inicial
-    let url = "https://rickandmortyapi.com/api/character?page=" + numberPage;
-     
-    fetch(url)
+
+
+function loadCharacters(url,numberPage){
+
+
+    let urlFinal;
+    
+    if(localStorage.getItem('url') !== null  && url){
+
+            if(url.includes('&page=')){
+                urlFinal = url.split("&page=")[0] + '&page=' + numberPage;
+            }
+            else{
+                urlFinal = url  + '&page=' + numberPage;  
+            }
+             
+           
+    }
+    else{
+        console.log('hola');
+        urlFinal = URL;
+        urlFinal +=  "&page=1";
+    }
+
+    
+    localStorage.setItem('url', urlFinal);
+    console.log("🚀 ~ file: personajes.js ~ line 42 ~ loadCharacters ~ urlFinal", urlFinal)
+    
+    /*localStorage.setItem('url', urlFinal);*/
+
+    fetch(urlFinal)
         .then(response => response.json())
         .then(data => {
         
@@ -39,7 +64,7 @@ function loadCharacters(numberPage){
                     <img src="${character.image}" alt="${character.name}">
                 </div>
                 <div class="infoCharacter">
-                    <h3 class="text-white mb-0">${character.name}</h3>
+                    <h2 class="text-white mb-0">${character.name}</h2>
                     <p class="text-white"><span class="${character.status.toLowerCase()}">${character.status}</span> - ${character.species} <i class="${icons[character.species]}"></i></p>
                     <p class="text-white">${character.gender}</p>
                     <p class="text-white-50 mb-0 small">Origen:</p>
@@ -54,6 +79,49 @@ function loadCharacters(numberPage){
     .catch(err =>{
         console.log(err);
     });
+
+    return false;
+}
+
+function applyFilters(){
+
+    let name = document.querySelector('#nameCharacter').value;
+    console.log("🚀 ~ file: personajes.js ~ line 62 ~ applyFilters ~ name", name)
+    let species = document.querySelector('#specieCharacter').value;
+    console.log("🚀 ~ file: personajes.js ~ line 64 ~ applyFilters ~ species", species)
+    let gender = document.querySelector('#inputGroupGender').value;
+    console.log("🚀 ~ file: personajes.js ~ line 66 ~ applyFilters ~ gender", gender)
+    let status = document.querySelector('#inputGroupStatus').value;
+    console.log("🚀 ~ file: personajes.js ~ line 68 ~ applyFilters ~ status", status)
+    
+    let url = URL;
+
+    let count = 0;
+
+    if(name && name!==''){
+        url += 'name=' + name;
+    }
+
+    if(species && species!==''){
+        count ++;
+        url += count > 0 ? '&' : '';
+        url += 'species=' + species;
+    }
+
+    if(gender !== 'Sin eleccion'){
+        count ++;
+        url += count > 0 ? '&' : '';
+        url += 'gender=' + gender;
+    }
+
+    if(status !== 'Sin eleccion'){
+        count ++;
+        url += count > 0 ? '&' : '';
+        url += 'status=' + status;
+    }
+
+    loadCharacters(url,1);
+
 }
 
 function renderPagination ({next, pages, prev}){
@@ -69,10 +137,10 @@ function renderPagination ({next, pages, prev}){
         ul.innerHTML += 
         `
         <li id="first-page" class="page-item ">
-            <a  class="page-link " href="#" onclick="loadCharacters(1)">&laquo;</a>
+            <a  class="page-link " href="#" onclick="loadCharacters('${localStorage.getItem('url')}',1)">&laquo;</a>
         </li>
         <li id="prev-page" class="page-item">
-            <a  class="page-link" href="#" onclick="loadCharacters(${anterior})">${anterior}</a>
+            <a  class="page-link" href="#" onclick="loadCharacters('${localStorage.getItem('url')}',${anterior})">${anterior}</a>
         </li>
         <li class="page-item active" aria-current="page">
               <span id="current-page"  class="page-link" >${numberCurrentPage}</span>
@@ -93,10 +161,10 @@ function renderPagination ({next, pages, prev}){
         numberCurrentPage = siguiente + 1;
         ul.innerHTML += `
         <li class="page-item">
-            <a id="next-page"  class="page-link" href="#" onclick="loadCharacters(${siguiente})">${siguiente}</a>
+            <a id="next-page"  class="page-link" href="#" onclick="loadCharacters('${localStorage.getItem('url')}',${siguiente})">${siguiente}</a>
         </li>
         <li class="page-item">
-            <a id="last-page" class="page-link" href="#" onclick="loadCharacters(${pages})">&raquo;</a>
+            <a id="last-page" class="page-link" href="#" onclick="loadCharacters('${localStorage.getItem('url')}',${pages})">&raquo;</a>
         </li>
         `;
     }
