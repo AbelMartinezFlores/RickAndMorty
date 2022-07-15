@@ -74,3 +74,20 @@ button{
    button:hover {
     color: white;
    }
+
+#banner{
+    height: 120vh;
+    background-image: url('../assets/wallpaper.jpg');
+    background-position: center bottom;
+}
+
+#banner > h1 {
+    font-family: 'Economica', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: calc(1rem + 10vw);
+    font-family: 'Economica', sans-serif;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+    letter-spacing: 3px;
+    text-decoration:underline;
+}
