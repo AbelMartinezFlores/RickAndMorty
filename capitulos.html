@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="./styles/categories.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5f15527a0f.js" crossorigin="anonymous"></script>
+    
+  </head>
+<body onload="loadCharacters(null,1)" >
+  
+    <div id="app" class="full-screen ">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark " >
+        <div class="container-fluid">
+          <a class="navbar-brand"  href="index.html">Rick &amp; Morty</a>
+          <button class="navbar-toggler collapsed me-3 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon "></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarNavAltMarkup" style="">
+            <div class="navbar-nav">
+              <a class="nav-link " href="escenarios.html">Escenarios</a>
+              <a class="nav-link " href="capitulos.html">Capitulos</a>
+              <a class="nav-link " href="personajes.html">Personajes</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+        <div id="banner" class=" full-center">
+            <h1>EN PROGRESO</h1>
+        </div>
+
+         <form action="" class="m-4 mt-0 d-flex flex-column align-items-center" onsubmit="applyFilters();">
+
+          <div class="mb-3 inputSearch" id="inputNameCharacter" style="max-width: 800px;">
+            <input type="text" class="form-control inputSearch" id="nameCharacter" placeholder="Buscar nombre...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+          <div class="mb-3 inputSearch" id="inputSpecieCharacter" style="max-width: 800px;">
+            <input type="text" class="form-control " id="specieCharacter" placeholder="Buscar especie...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          
+          <div class="input-group mb-3" style="max-width: 800px;">
+            <label class="input-group-text" for="inputGroupGender">Genero</label>
+            <select class="form-select" id="inputGroupGender">
+              <option selected>Sin eleccion</option>
+              <option value="female">Mujer</option>
+              <option value="male">Hombre</option>
+              <option value="genderless">Sin genero</option>
+              <option value="unknown">Desconocido</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-3" style="max-width: 800px;">
+            <label class="input-group-text" for="inputGroupStatus">Genero</label>
+            <select class="form-select" id="inputGroupStatus">
+              <option selected>Sin eleccion</option>
+              <option value="alive">Vivo</option>
+              <option value="dead">Muerto</option>
+              <option value="unknown">Desconocido</option>
+            </select>
+          </div>
+          
+            <button class="mt-3">Buscar</button>
+
+        </form> 
+
+        
+
+        <div id="groupCharacters" class="d-flex justify-content-center p-4 flex-wrap">
+        </div>
+
+        <nav id="container-pagination" aria-label="..." class="d-flex justify-content-center">
+          <ul class="pagination">
+            <li class="page-item">
+              <a id="prev-page"  class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a id="next-page"  class="page-link" href="#">3</a>
+            </li>
+          </ul>
+        </nav>
+    </div> 
+    <i class="fa-solid fa-alien"></i>
+</body>
+</html>

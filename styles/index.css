@@ -83,6 +83,12 @@
     opacity: 0;
 }
 
+#division {
+    background-color: white;
+    height: 100%;
+    width: 10px;
+}
+
 
 @media (max-width:990px){
     #container{
@@ -110,5 +116,10 @@
     .group > div {
         padding: 0;
         padding-bottom: 2rem;
+    }
+
+    #division { 
+        width: 100%;
+        height: 5px;
     }
 }
