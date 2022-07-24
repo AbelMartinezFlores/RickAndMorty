@@ -14,7 +14,7 @@ const icons = {
 
 
 
-function loadCharacters(url,numberPage){
+function fetchCharacters(url,numberPage){
 
 
     let urlFinal;
@@ -38,7 +38,6 @@ function loadCharacters(url,numberPage){
 
     
     localStorage.setItem('url', urlFinal);
-    console.log("🚀 ~ file: personajes.js ~ line 42 ~ loadCharacters ~ urlFinal", urlFinal)
     
     /*localStorage.setItem('url', urlFinal);*/
 
@@ -120,7 +119,7 @@ function applyFilters(){
         url += 'status=' + status;
     }
 
-    loadCharacters(url,1);
+    fetchCharacters(url,1);
 
 }
 
@@ -137,10 +136,10 @@ function renderPagination ({next, pages, prev}){
         ul.innerHTML += 
         `
         <li id="first-page" class="page-item ">
-            <a  class="page-link " href="#" onclick="loadCharacters('${localStorage.getItem('url')}',1)">&laquo;</a>
+            <a  class="page-link " href="#" onclick="fetchCharacters('${localStorage.getItem('url')}',1)">&laquo;</a>
         </li>
         <li id="prev-page" class="page-item">
-            <a  class="page-link" href="#" onclick="loadCharacters('${localStorage.getItem('url')}',${anterior})">${anterior}</a>
+            <a  class="page-link" href="#" onclick="fetchCharacters('${localStorage.getItem('url')}',${anterior})">${anterior}</a>
         </li>
         <li class="page-item active" aria-current="page">
               <span id="current-page"  class="page-link" >${numberCurrentPage}</span>
@@ -161,10 +160,10 @@ function renderPagination ({next, pages, prev}){
         numberCurrentPage = siguiente + 1;
         ul.innerHTML += `
         <li class="page-item">
-            <a id="next-page"  class="page-link" href="#" onclick="loadCharacters('${localStorage.getItem('url')}',${siguiente})">${siguiente}</a>
+            <a id="next-page"  class="page-link" href="#" onclick="fetchCharacters('${localStorage.getItem('url')}',${siguiente})">${siguiente}</a>
         </li>
         <li class="page-item">
-            <a id="last-page" class="page-link" href="#" onclick="loadCharacters('${localStorage.getItem('url')}',${pages})">&raquo;</a>
+            <a id="last-page" class="page-link" href="#" onclick="fetchCharacters('${localStorage.getItem('url')}',${pages})">&raquo;</a>
         </li>
         `;
     }
