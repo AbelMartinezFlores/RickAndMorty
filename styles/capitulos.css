@@ -1,0 +1,139 @@
+@import 'format.css';
+
+.season {
+    margin: 30px;
+}
+
+    .tittle-controls{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .tittle-controls h2{
+        color: #fff;
+    }
+
+    .tittle-controls .indicators{
+        display: flex;
+    }
+        .tittle-controls .indicators div{
+            background-color: #fff;
+            height: 3px;
+            width: 20px;
+            cursor: pointer;
+            margin-right: 2px;
+        }
+
+        .tittle-controls .indicators div:hover,
+        .tittle-controls .indicators div.active{
+            background-color: red;
+        }
+
+
+    .container-principal{
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+        #left-arrow, #right-arrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            background-color: rgba(0,0,0,0.3);
+            font-size: 2rem;
+            height: 50%;
+            top:calc(50% - 25%);
+            line-height: 2rem;
+            width: 2rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 2;
+            transition: .2s ease all;
+        }
+
+        #left-arrow{
+            left: 0;
+        }
+
+        #right-arrow{
+            right: 0;
+        }
+
+        #left-arrow:hover, #right-arrow:hover{
+            background: rgba(0,0,0,0.9);
+        }
+
+    .container-carousel{
+        width: 100%;
+        padding: 1rem 0;
+        overflow: hidden;
+        scroll-behavior: smooth;
+    }
+
+        .carousel{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+            .carousel .episode{
+                min-width: 20%;
+                transition: .3s ease all;
+                box-shadow: 5px 5px 10px rgbs(0,0,0,.3);
+                position: relative;
+            }
+
+            .carousel .episode > p{
+                display: none;
+            }
+
+
+            .carousel .episode:hover {
+                transform:scale(1.2);
+                transform-origin: center;
+                z-index: 1;
+            }
+
+            .carousel .episode:hover > p {
+                padding: 2rem;
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                color: #fff;
+                font-size: calc(1rem + .3vw);
+            }
+
+            .carousel .episode img{
+                width: 100%;
+                height: 100%;
+                vertical-align: top;
+            }
+
+
+@media all and (max-width:1000px){
+    .season .container-carousel{
+        overflow: visible;
+        
+    }
+
+    .season .container-carousel .carousel{
+        display: grid;
+        grid-template-columns:  repeat(3,1fr);
+        gap: 1rem;
+    } 
+
+    .tittle-controls .indicators,
+    #left-arrow,
+    #right-arrow{
+        display: none;
+    }
+}
