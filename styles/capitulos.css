@@ -38,8 +38,8 @@
         position: relative;
     }
 
-        #left-arrow, #right-arrow{
-            display: flex;
+        .left-arrow, .right-arrow{
+            display: flex !important;
             justify-content: center;
             align-items: center;
             position: absolute;
@@ -55,15 +55,15 @@
             transition: .2s ease all;
         }
 
-        #left-arrow{
+        .left-arrow{
             left: 0;
         }
 
-        #right-arrow{
+        .right-arrow{
             right: 0;
         }
 
-        #left-arrow:hover, #right-arrow:hover{
+        .left-arrow:hover, .right-arrow:hover{
             background: rgba(0,0,0,0.9);
         }
 
@@ -132,8 +132,24 @@
     } 
 
     .tittle-controls .indicators,
-    #left-arrow,
-    #right-arrow{
-        display: none;
+    .left-arrow,
+    .right-arrow{
+        display: none !important;
     }
+}
+
+@media all and (max-width:750px){
+
+    .season .container-carousel .carousel{
+        grid-template-columns:  repeat(2,1fr);
+    } 
+    
+}
+
+@media all and (max-width:500px){
+
+    .season .container-carousel .carousel{
+        grid-template-columns:  repeat(1,1fr);
+    } 
+    
 }
