@@ -24,7 +24,6 @@ function fetchCharacters(url,numberPage){
             }
     }
     else{
-        console.log('hola');
         urlFinal = URL;
         urlFinal +=  "&page=1";
     }
@@ -34,43 +33,43 @@ function fetchCharacters(url,numberPage){
     fetch(urlFinal)
         .then(response => response.json())
         .then(data => {
-        
-            console.log(data);
+            
             let characters = data.results;
             let groupCharacters = document.querySelector('#groupCharacters');
             groupCharacters.innerHTML= "";
             renderPagination(data.info);
 
             characters.forEach(character => {
-                
-                let div = document.createElement('div');
-
-                div.classList.add('cardCharacter');
-
-                div.innerHTML = 
-                `
-                <div class="imgCharacter">
-                    <img src="${character.image}" alt="${character.name}">
-                </div>
-                <div class="infoCharacter">
-                    <h2 class="text-white mb-0">${character.name}</h2>
-                    <p class="text-white"><span class="${character.status.toLowerCase()}">${character.status}</span> - ${character.species} <i class="${icons[character.species]}"></i></p>
-                    <p class="text-white">${character.gender}</p>
-                    <p class="text-white-50 mb-0 small">Origen:</p>
-                    <p class="text-white">${character.origin.name}</p>
-                </div>
-                `;
-
-                groupCharacters.appendChild(div);
+                groupCharacters.appendChild(createCharacter(character));
             });
-            
     })
     .catch(err =>{
         console.log(err);
     });
-
-    return false;
 }
+
+function createCharacter(character){
+
+    let div = document.createElement('div');
+    div.classList.add('cardCharacter');
+    //estructura de la card del personaje
+    div.innerHTML = 
+    `
+    <div class="imgCharacter">
+        <img src="${character.image}" alt="${character.name}">
+    </div>
+    <div class="infoCharacter">
+        <h2 class="text-white mb-0">${character.name}</h2>
+        <p class="text-white"><span class="${character.status.toLowerCase()}">${character.status}</span> - ${character.species} <i class="${icons[character.species]}"></i></p>
+        <p class="text-white">${character.gender}</p>
+        <p class="text-white-50 mb-0 small">Origen:</p>
+        <p class="text-white">${character.origin.name}</p>
+    </div>
+    `;
+    
+    return div; 
+}
+
 // ------------ Para aplicar los filtros de busqueda ----------
 const formCharacters = document.querySelector('#formCharacters');
 formCharacters.addEventListener('submit', (e) =>{
