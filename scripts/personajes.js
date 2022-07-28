@@ -1,7 +1,6 @@
 'use strict'
 
 const URL = "https://rickandmortyapi.com/api/character/?";
-
 const icons = {
     Human: 'fa-solid fa-user',
     Alien: 'fa-brands fa-reddit-alien',
@@ -10,13 +9,9 @@ const icons = {
     'Mythological Creature': 'fa-solid fa-gem',
     Robot: 'fa-solid fa-robot',
     Animal: 'fa-solid fa-paw'
-}
-
-
+};
 
 function fetchCharacters(url,numberPage){
-
-
     let urlFinal;
     
     if(localStorage.getItem('url') !== null  && url){
@@ -27,19 +22,14 @@ function fetchCharacters(url,numberPage){
             else{
                 urlFinal = url  + '&page=' + numberPage;  
             }
-             
-           
     }
     else{
         console.log('hola');
         urlFinal = URL;
         urlFinal +=  "&page=1";
     }
-
     
     localStorage.setItem('url', urlFinal);
-    
-    /*localStorage.setItem('url', urlFinal);*/
 
     fetch(urlFinal)
         .then(response => response.json())
@@ -81,17 +71,15 @@ function fetchCharacters(url,numberPage){
 
     return false;
 }
-
-function applyFilters(){
+// ------------ Para aplicar los filtros de busqueda ----------
+const formCharacters = document.querySelector('#formCharacters');
+formCharacters.addEventListener('submit', (e) =>{
+    e.preventDefault();
 
     let name = document.querySelector('#nameCharacter').value;
-    console.log("🚀 ~ file: personajes.js ~ line 62 ~ applyFilters ~ name", name)
     let species = document.querySelector('#specieCharacter').value;
-    console.log("🚀 ~ file: personajes.js ~ line 64 ~ applyFilters ~ species", species)
     let gender = document.querySelector('#inputGroupGender').value;
-    console.log("🚀 ~ file: personajes.js ~ line 66 ~ applyFilters ~ gender", gender)
     let status = document.querySelector('#inputGroupStatus').value;
-    console.log("🚀 ~ file: personajes.js ~ line 68 ~ applyFilters ~ status", status)
     
     let url = URL;
 
@@ -120,8 +108,7 @@ function applyFilters(){
     }
 
     fetchCharacters(url,1);
-
-}
+});
 
 function renderPagination ({next, pages, prev}){
 

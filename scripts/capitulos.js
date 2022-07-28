@@ -43,12 +43,12 @@ leftArrow.forEach( (e) =>{
     });
 });
 
-
 // ------------- Paginacion de los episodios de cada carousel -------------
 const containerCarousels = document.querySelectorAll('.carousel');
 containerCarousels.forEach( (e) => {
     //sacamos que carousel es y vemoc suantos episodios tiene esa temporada para dividir la paginacion
-    let season = e.attributes.id.nodeValue
+    let carousel = e.parentElement;
+    let season = e.attributes.id.nodeValue;
     const numberPages = Math.ceil(e.childElementCount/5);
 
     for( let i = 0 ; i < numberPages; i++){
@@ -59,10 +59,10 @@ containerCarousels.forEach( (e) => {
     
         document.querySelector(`#${season} .indicators`).appendChild(indicator);
         //para que todos los indicadores permitan desplazamiento
-        indicator.addEventListener('click', (e) => {
+        indicator.addEventListener('click', (ind) => {
             carousel.scrollLeft = i* carousel.offsetWidth;
             document.querySelector(`#${season} .indicators .active`).classList.remove('active');
-            e.target.classList.add('active');
+            ind.target.classList.add('active');
         });
     }   
 });

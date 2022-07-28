@@ -9,9 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/5f15527a0f.js" crossorigin="anonymous"></script>
-    <script src="./scripts/personajes.js"></script>
+    
   </head>
-<body onload="loadCharacters(null,1)" >
+<body onload="fetchCharacters(null,1)" >
   
     <div id="app" class="full-screen ">
 
@@ -34,7 +34,7 @@
             <h1>PERSONAJES</h1>
         </div>
 
-         <form action="" class="m-4 mt-0 d-flex flex-column align-items-center" onsubmit="applyFilters();">
+         <form id="formCharacters" action="" class="m-4 mt-0 d-flex flex-column align-items-center" >
 
           <div class="mb-3 inputSearch" id="inputNameCharacter" style="max-width: 800px;">
             <input type="text" class="form-control inputSearch" id="nameCharacter" placeholder="Buscar nombre...">
@@ -87,5 +87,6 @@
           </ul>
         </nav>
     </div> 
+    <script src="./scripts/personajes.js"></script>
 </body>
 </html>
