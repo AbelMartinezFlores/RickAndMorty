@@ -29,20 +29,25 @@ function fetchCharacters(url,numberPage){
     }
     
     localStorage.setItem('url', urlFinal);
-
     fetch(urlFinal)
-        .then(response => response.json())
-        .then(data => {
-            
-            let characters = data.results;
+        .then(response => {
             let groupCharacters = document.querySelector('#groupCharacters');
             groupCharacters.innerHTML= "";
-            renderPagination(data.info);
-
-            characters.forEach(character => {
+            if(response.ok){
+                response.json().then(data =>{
+                let characters = data.results;
+                renderPagination(data.info);
+                characters.forEach(character => {
                 groupCharacters.appendChild(createCharacter(character));
             });
-    })
+                });
+            }
+            else{
+                groupCharacters.innerHTML = '<p>No se han encontrado personajes</p>';
+                document.querySelector('.pagination').innerHTML= '';
+                throw new Error('no se han encontrado personajes');
+            }
+        })
     .catch(err =>{
         console.log(err);
     });

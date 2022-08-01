@@ -24,6 +24,12 @@
     color: #aaa;
 }
 
+#groupCharacters > p{
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 .cardCharacter {
     display: flex;
     gap: 0.5rem;

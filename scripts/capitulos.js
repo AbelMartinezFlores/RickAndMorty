@@ -44,8 +44,6 @@ function createEpisode (episode){
     return div;
 }
 
-fetchEpisodes();
-
 // ------------- todo lo necesario para el carousel -------------
 // ------------- aqui empiezo con las flechas de todos los carousel -------------
 const leftArrow = document.querySelectorAll('.left-arrow');
