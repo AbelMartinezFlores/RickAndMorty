@@ -39,7 +39,7 @@ function createEpisode (episode){
 
     div.innerHTML = `
         <img src="./assets/episodes/${episode.id}.jpg" alt="${episode.id}">
-        <p>E${episode.id}:${episode.name}</p>
+        <p>E${episode.id}: ${episode.name}</p>
     `;
     return div;
 }
